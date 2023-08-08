@@ -8,5 +8,35 @@ library(palmerpenguins)
 ```
 
 ```{r}
+fx = expression(x^2)
 
+df_dx = D(fx,'x')
+
+x = 3
+
+eval(df_dx)
+```
+
+```{r}
+fa = expression(2 * ((3*a + 2 )^4) - 5)
+
+df_da = D(fa, 'a')
+
+a = 1.2
+
+eval(df_da)
+```
+
+```{r}
+ggplot( data = penguins,
+        aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + 
+  geom_point() +
+  labs( x = "Bill length (mm)", y = "Bill depth (mm)", title = "Palmer penguins bill length vs bill depth")
+```
+
+```{r}
+ggplot( data = penguins,
+        aes(x = species, y = flipper_length_mm, color = species)) + 
+  geom_jitter() +
+  labs( x = "Species", y = "Flipper length (mm)", title = "Flipper length of Palmer penguins species")
 ```
